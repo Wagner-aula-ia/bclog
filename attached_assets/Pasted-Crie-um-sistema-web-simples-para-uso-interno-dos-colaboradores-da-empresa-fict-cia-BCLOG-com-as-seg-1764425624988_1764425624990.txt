@@ -1,0 +1,119 @@
+Crie um sistema web simples para uso interno dos colaboradores da empresa fictícia BCLOG, com as seguintes especificações:
+
+📦 Objetivo geral
+
+O sistema deve permitir visualizar e controlar um pequeno estoque em porta-paletes e uma área adicional de 3 fileiras de paletes com método Kanban, usada para mercadorias de saída rápida.
+
+🔷 1. Estrutura do Porta-Palete (área principal do armazém)
+
+2 blocos: Bloco 1 e Bloco 2
+
+Cada bloco possui:
+
+5 níveis
+
+2 posições por nível (AP1 e AP2)
+
+Total: 20 posições por bloco.
+
+Cada posição deve permitir:
+
+Registrar produto
+
+Editar informações
+
+Ver detalhes
+
+Esvaziar posição
+
+Campos mínimos:
+
+Nome do produto
+
+Código
+
+Quantidade
+
+Data de entrada
+
+Observações
+
+🟩🟥🟨 2. Área Kanban (mercadorias de saída rápida)
+
+Criar uma seção separada no sistema chamada:
+
+“Kanban – Saída Rápida”
+
+Esta seção deve conter 3 fileiras de paletes, usando o método Kanban, com cores padrão:
+
+Verde – Pronto / Disponível
+
+Amarelo – Atenção / Pré-saída
+
+Vermelho – Urgente / Saída imediata
+
+Para cada fileira Kanban:
+
+Exibir visualmente os paletes com a cor correspondente
+
+Permitir adicionar mercadorias (mesmos campos do porta-palete)
+
+Permitir mover paletes entre as cores (ex.: de verde para amarelo, amarelo para vermelho)
+
+Permitir marcar como “expedido” e liberar a posição
+
+Salvar dados via localStorage
+
+🧭 3. Funcionalidades gerais do sistema
+
+Dashboard simples e intuitivo
+
+Cabeçalho: “BCLOG – Sistema de Armazenagem Interno”
+
+Indicadores:
+
+Total de posições ocupadas no porta-palete
+
+Total de posições livres
+
+Quantidade de paletes em cada cor do Kanban
+
+Tudo deve rodar em:
+
+HTML
+
+CSS
+
+JavaScript (puro, sem backend)
+
+🎨 4. Layout
+
+Estilo limpo e profissional
+
+Cores principais: azul escuro, cinza e branco
+
+Fileiras Kanban com destaque nas cores padrão
+
+Pode usar FontAwesome para ícones
+
+Modais simples para add/editar produtos
+
+🧱 5. Requisitos técnicos
+
+Código separado:
+
+index.html
+
+style.css
+
+script.js
+
+Responsivo (desktop + mobile)
+
+Organização clara das seções:
+
+Porta-Palete
+
+Kanban Saída Rápida
+
+Indicadores
