@@ -6,6 +6,9 @@ import type {
   DashboardStats,
   KanbanStatus,
   ProductFormData,
+  MovementHistory,
+  InsertMovementHistory,
+  MovementType,
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 
@@ -28,15 +31,22 @@ export interface IStorage {
 
   // Stats
   getStats(): Promise<DashboardStats>;
+
+  // Movement History
+  getAllHistory(): Promise<MovementHistory[]>;
+  getHistoryByDateRange(startDate: string, endDate: string): Promise<MovementHistory[]>;
+  addHistoryEntry(entry: InsertMovementHistory): Promise<MovementHistory>;
 }
 
 export class MemStorage implements IStorage {
   private positions: Map<string, PalletPosition>;
   private kanbanPallets: Map<string, KanbanPallet>;
+  private history: Map<string, MovementHistory>;
 
   constructor() {
     this.positions = new Map();
     this.kanbanPallets = new Map();
+    this.history = new Map();
     this.initializePositions();
   }
 
@@ -169,6 +179,38 @@ export class MemStorage implements IStorage {
       kanbanYellow: kanbanPallets.filter((p) => p.status === "yellow").length,
       kanbanRed: kanbanPallets.filter((p) => p.status === "red").length,
     };
+  }
+
+  async getAllHistory(): Promise<MovementHistory[]> {
+    return Array.from(this.history.values()).sort(
+      (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+    );
+  }
+
+  async getHistoryByDateRange(
+    startDate: string,
+    endDate: string
+  ): Promise<MovementHistory[]> {
+    const start = new Date(startDate).getTime();
+    const end = new Date(endDate).getTime();
+
+    return Array.from(this.history.values())
+      .filter((entry) => {
+        const timestamp = new Date(entry.timestamp).getTime();
+        return timestamp >= start && timestamp <= end;
+      })
+      .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+  }
+
+  async addHistoryEntry(entry: InsertMovementHistory): Promise<MovementHistory> {
+    const id = randomUUID();
+    const historyEntry: MovementHistory = {
+      id,
+      ...entry,
+    };
+
+    this.history.set(id, historyEntry);
+    return historyEntry;
   }
 }
 

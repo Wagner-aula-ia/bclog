@@ -59,6 +59,35 @@ export interface DashboardStats {
   kanbanRed: number;
 }
 
+// Movement History - tracks all warehouse actions
+export const movementTypeSchema = z.enum([
+  "entry",      // Product added to position
+  "exit",       // Product removed/cleared from position
+  "edit",       // Product details edited
+  "kanban_add", // Pallet added to Kanban
+  "kanban_move", // Pallet moved between Kanban statuses
+  "kanban_expedite", // Pallet expedited (removed from Kanban)
+]);
+
+export type MovementType = z.infer<typeof movementTypeSchema>;
+
+export const movementHistorySchema = z.object({
+  id: z.string(),
+  timestamp: z.string(), // ISO date string
+  type: movementTypeSchema,
+  productName: z.string(),
+  productCode: z.string(),
+  quantity: z.number(),
+  location: z.string(), // e.g., "Bloco 1, Nível 5, AP1" or "Kanban Verde"
+  previousLocation: z.string().optional(), // For moves
+  details: z.string().optional(), // Additional info
+});
+
+export type MovementHistory = z.infer<typeof movementHistorySchema>;
+
+export const insertMovementHistorySchema = movementHistorySchema.omit({ id: true });
+export type InsertMovementHistory = z.infer<typeof insertMovementHistorySchema>;
+
 // Keep user schema for template compatibility
 export const users = {
   id: "",
