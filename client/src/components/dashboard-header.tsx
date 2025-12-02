@@ -1,5 +1,6 @@
 import type { DashboardStats } from "@shared/schema";
 import { Package, PackageCheck, PackageX } from "lucide-react";
+import bclogLogo from "@assets/bclog_fundo_branco_1764714366379.png";
 
 interface DashboardHeaderProps {
   stats: DashboardStats;
@@ -58,9 +59,11 @@ export function DashboardHeader({ stats, isLoading }: DashboardHeaderProps) {
       <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500">
-              <Package className="h-6 w-6 text-white" />
-            </div>
+            <img
+              src={bclogLogo}
+              alt="BCLog Express"
+              className="h-12 w-auto rounded-lg bg-white p-1"
+            />
             <div>
               <h1 className="text-xl font-semibold text-white sm:text-2xl">
                 BCLOG
