@@ -1,4 +1,6 @@
 import { z } from "zod";
+import { pgTable, varchar, integer, boolean, text } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
 
 // Pallet Position (for Porta-Palete)
 export const palletPositionSchema = z.object({
@@ -102,3 +104,38 @@ export const insertUserSchema = z.object({
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = { id: string; username: string; password: string };
+
+export const palletPositions = pgTable("pallet_positions", {
+  id: varchar("id").primaryKey(),
+  block: integer("block").notNull(),
+  level: integer("level").notNull(),
+  position: varchar("position", { length: 10 }).notNull(),
+  productName: varchar("product_name", { length: 255 }),
+  productCode: varchar("product_code", { length: 100 }),
+  quantity: integer("quantity"),
+  entryDate: varchar("entry_date", { length: 50 }),
+  observations: text("observations"),
+  isEmpty: boolean("is_empty").notNull().default(true),
+});
+
+export const kanbanPallets = pgTable("kanban_pallets", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  status: varchar("status", { length: 20 }).notNull(),
+  productName: varchar("product_name", { length: 255 }).notNull(),
+  productCode: varchar("product_code", { length: 100 }).notNull(),
+  quantity: integer("quantity").notNull(),
+  entryDate: varchar("entry_date", { length: 50 }).notNull(),
+  observations: text("observations"),
+});
+
+export const movementHistory = pgTable("movement_history", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  timestamp: varchar("timestamp", { length: 50 }).notNull(),
+  type: varchar("type", { length: 20 }).notNull(),
+  productName: varchar("product_name", { length: 255 }).notNull(),
+  productCode: varchar("product_code", { length: 100 }).notNull(),
+  quantity: integer("quantity").notNull(),
+  location: varchar("location", { length: 255 }).notNull(),
+  previousLocation: varchar("previous_location", { length: 255 }),
+  details: text("details"),
+});
