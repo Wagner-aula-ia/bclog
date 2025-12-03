@@ -42,12 +42,17 @@ export type KanbanPallet = z.infer<typeof kanbanPalletSchema>;
 export const insertKanbanPalletSchema = kanbanPalletSchema.omit({ id: true });
 export type InsertKanbanPallet = z.infer<typeof insertKanbanPalletSchema>;
 
+// Storage type enum
+export const storageTypeSchema = z.enum(["granel", "palete"]);
+export type StorageType = z.infer<typeof storageTypeSchema>;
+
 // Product form schema for validation
 export const productFormSchema = z.object({
   productName: z.string().min(1, "Nome do produto é obrigatório"),
   productCode: z.string().min(1, "Código do produto é obrigatório"),
   clientName: z.string().min(1, "Nome do cliente é obrigatório"),
   quantity: z.number().min(1, "Quantidade deve ser maior que 0"),
+  storageType: storageTypeSchema.default("palete"),
   entryDate: z.string().min(1, "Data de entrada é obrigatória"),
   observations: z.string().optional(),
 });
