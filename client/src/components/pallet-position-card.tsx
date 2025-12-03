@@ -28,7 +28,7 @@ export function PalletPositionCard({
   if (position.isEmpty) {
     return (
       <Card
-        className="group relative flex h-[120px] cursor-pointer flex-col items-center justify-center border-2 border-dashed border-muted-foreground/30 bg-muted/30 transition-all hover-elevate"
+        className="group relative flex min-h-[120px] cursor-pointer flex-col items-center justify-center border-2 border-dashed border-muted-foreground/30 bg-muted/30 transition-all hover-elevate"
         onClick={onAdd}
         data-testid={`position-empty-${position.block}-${position.level}-${position.position}`}
       >
@@ -50,7 +50,7 @@ export function PalletPositionCard({
 
   return (
     <Card
-      className="group relative h-[120px] overflow-visible border bg-card p-3 transition-all hover-elevate"
+      className="group relative min-h-[120px] overflow-visible border bg-card p-3 transition-all hover-elevate"
       data-testid={`position-filled-${position.block}-${position.level}-${position.position}`}
     >
       <div className="mb-2 flex items-start justify-between gap-2">
