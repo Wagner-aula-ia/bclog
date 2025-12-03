@@ -140,7 +140,7 @@ export function ProductDetailModal({
               <div className="flex items-start gap-3 rounded-lg border p-3">
                 <MapPin className="mt-0.5 h-4 w-4 text-muted-foreground" />
                 <div className="flex-1">
-                  <p className="text-xs text-muted-foreground">Endereco</p>
+                  <p className="text-xs text-muted-foreground">Endereço</p>
                   <p className="text-sm" data-testid="text-detail-address">{address}</p>
                 </div>
               </div>

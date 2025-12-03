@@ -222,7 +222,7 @@ export function ProductFormModal({
               name="address"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Endereco (opcional)</FormLabel>
+                  <FormLabel>Endereço</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Ex: Rua das Flores, 123"

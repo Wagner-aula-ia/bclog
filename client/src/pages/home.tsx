@@ -266,6 +266,7 @@ export default function Home() {
           quantity: selectedPosition.quantity,
           storageType: selectedPosition.storageType,
           entryDate: selectedPosition.entryDate,
+          address: selectedPosition.address,
           observations: selectedPosition.observations,
         };
       }
@@ -277,6 +278,7 @@ export default function Home() {
           quantity: selectedKanban.quantity,
           storageType: selectedKanban.storageType,
           entryDate: selectedKanban.entryDate,
+          address: selectedKanban.address,
           observations: selectedKanban.observations,
         };
       }
