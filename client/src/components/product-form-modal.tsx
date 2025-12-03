@@ -96,6 +96,24 @@ export function ProductFormModal({
           <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
             <FormField
               control={form.control}
+              name="clientName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Nome do Cliente</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Ex: Empresa ABC Ltda"
+                      {...field}
+                      data-testid="input-client-name"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
               name="productName"
               render={({ field }) => (
                 <FormItem>
@@ -123,24 +141,6 @@ export function ProductFormModal({
                       placeholder="Ex: SKU-001"
                       {...field}
                       data-testid="input-product-code"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="clientName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Nome do Cliente</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Ex: Empresa ABC Ltda"
-                      {...field}
-                      data-testid="input-client-name"
                     />
                   </FormControl>
                   <FormMessage />

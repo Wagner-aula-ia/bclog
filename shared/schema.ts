@@ -2,6 +2,10 @@ import { z } from "zod";
 import { pgTable, varchar, integer, boolean, text } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 
+// Storage type enum
+export const storageTypeSchema = z.enum(["granel", "palete"]);
+export type StorageType = z.infer<typeof storageTypeSchema>;
+
 // Pallet Position (for Porta-Palete)
 export const palletPositionSchema = z.object({
   id: z.string(),
@@ -12,6 +16,7 @@ export const palletPositionSchema = z.object({
   productCode: z.string().optional(),
   clientName: z.string().optional(),
   quantity: z.number().optional(),
+  storageType: storageTypeSchema.optional(),
   entryDate: z.string().optional(),
   observations: z.string().optional(),
   isEmpty: z.boolean(),
@@ -41,10 +46,6 @@ export type KanbanPallet = z.infer<typeof kanbanPalletSchema>;
 
 export const insertKanbanPalletSchema = kanbanPalletSchema.omit({ id: true });
 export type InsertKanbanPallet = z.infer<typeof insertKanbanPalletSchema>;
-
-// Storage type enum
-export const storageTypeSchema = z.enum(["granel", "palete"]);
-export type StorageType = z.infer<typeof storageTypeSchema>;
 
 // Product form schema for validation
 export const productFormSchema = z.object({
@@ -123,6 +124,7 @@ export const palletPositions = pgTable("pallet_positions", {
   productCode: varchar("product_code", { length: 100 }),
   clientName: varchar("client_name", { length: 255 }),
   quantity: integer("quantity"),
+  storageType: varchar("storage_type", { length: 20 }),
   entryDate: varchar("entry_date", { length: 50 }),
   observations: text("observations"),
   isEmpty: boolean("is_empty").notNull().default(true),
