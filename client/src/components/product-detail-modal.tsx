@@ -9,8 +9,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Package, Calendar, Hash, FileText, Layers } from "lucide-react";
-import { format } from "date-fns";
-import { ptBR } from "date-fns/locale";
 
 interface ProductDetailModalProps {
   open: boolean;
@@ -46,7 +44,14 @@ export function ProductDetailModal({
     : positionProduct.observations;
 
   const formattedDate = entryDate
-    ? format(new Date(entryDate), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })
+    ? (() => {
+        const [year, month, day] = entryDate.split("-");
+        const monthNames = [
+          "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+          "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
+        ];
+        return `${parseInt(day)} de ${monthNames[parseInt(month) - 1]} de ${year}`;
+      })()
     : "Nao informada";
 
   return (

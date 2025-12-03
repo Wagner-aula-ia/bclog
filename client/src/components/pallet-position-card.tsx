@@ -7,8 +7,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Eye, Edit2, Trash2, Plus, Package } from "lucide-react";
-import { format } from "date-fns";
-import { ptBR } from "date-fns/locale";
 
 interface PalletPositionCardProps {
   position: PalletPosition;
@@ -44,7 +42,10 @@ export function PalletPositionCard({
   }
 
   const formattedDate = position.entryDate
-    ? format(new Date(position.entryDate), "dd/MM/yyyy", { locale: ptBR })
+    ? (() => {
+        const [year, month, day] = position.entryDate.split("-");
+        return `${day}/${month}/${year}`;
+      })()
     : "";
 
   return (

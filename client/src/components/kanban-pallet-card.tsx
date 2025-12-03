@@ -21,8 +21,6 @@ import {
   MoreVertical,
   Trash2,
 } from "lucide-react";
-import { format } from "date-fns";
-import { ptBR } from "date-fns/locale";
 
 interface KanbanPalletCardProps {
   pallet: KanbanPallet;
@@ -72,9 +70,10 @@ export function KanbanPalletCard({
   onDelete,
 }: KanbanPalletCardProps) {
   const config = statusConfig[pallet.status];
-  const formattedDate = format(new Date(pallet.entryDate), "dd/MM/yyyy", {
-    locale: ptBR,
-  });
+  const formattedDate = (() => {
+    const [year, month, day] = pallet.entryDate.split("-");
+    return `${day}/${month}/${year}`;
+  })();
 
   const handleMoveNext = () => {
     if (config.nextStatus) {
