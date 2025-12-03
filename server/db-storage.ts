@@ -248,13 +248,16 @@ export class DbStorage implements IStorage {
   ): Promise<MovementHistory[]> {
     const history = await db.select().from(movementHistory);
     
-    const start = new Date(startDate).getTime();
-    const end = new Date(endDate).getTime();
+    const start = new Date(startDate);
+    start.setHours(0, 0, 0, 0);
+    
+    const end = new Date(endDate);
+    end.setHours(23, 59, 59, 999);
 
     return history
       .filter((entry) => {
         const timestamp = new Date(entry.timestamp).getTime();
-        return timestamp >= start && timestamp <= end;
+        return timestamp >= start.getTime() && timestamp <= end.getTime();
       })
       .map(entry => ({
         id: entry.id,

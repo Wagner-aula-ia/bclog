@@ -27,6 +27,7 @@ import {
   ArrowLeftRight,
   ArrowRightFromLine,
   CalendarDays,
+  Download,
   FileText,
   Package,
   PackagePlus,
@@ -67,6 +68,39 @@ function getMovementTypeBadgeVariant(type: MovementType): "default" | "secondary
     default:
       return "outline";
   }
+}
+
+function exportToExcel(data: MovementHistory[], startDate: string, endDate: string) {
+  const headers = ["Data/Hora", "Tipo", "Produto", "Código", "Cliente", "Quantidade", "Localização", "Localização Anterior", "Detalhes"];
+  
+  const rows = data.map(entry => [
+    format(parseISO(entry.timestamp), "dd/MM/yyyy HH:mm", { locale: ptBR }),
+    movementTypeLabels[entry.type],
+    entry.productName,
+    entry.productCode,
+    entry.clientName,
+    entry.quantity.toString(),
+    entry.location,
+    entry.previousLocation || "",
+    entry.details || "",
+  ]);
+
+  const csvContent = [
+    headers.join(";"),
+    ...rows.map(row => row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(";"))
+  ].join("\n");
+
+  const BOM = "\uFEFF";
+  const blob = new Blob([BOM + csvContent], { type: "text/csv;charset=utf-8;" });
+  const link = document.createElement("a");
+  const url = URL.createObjectURL(blob);
+  
+  link.setAttribute("href", url);
+  link.setAttribute("download", `historico_${startDate}_${endDate}.csv`);
+  link.style.visibility = "hidden";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 export default function HistoryPage() {
@@ -135,13 +169,24 @@ export default function HistoryPage() {
                   data-testid="input-end-date"
                 />
               </div>
-              <Button
-                onClick={() => refetch()}
-                variant="outline"
-                data-testid="button-filter-date"
-              >
-                Filtrar
-              </Button>
+              <div className="flex gap-2">
+                <Button
+                  onClick={() => refetch()}
+                  variant="outline"
+                  data-testid="button-filter-date"
+                >
+                  Filtrar
+                </Button>
+                <Button
+                  onClick={() => exportToExcel(filteredHistory, startDate, endDate)}
+                  variant="default"
+                  disabled={filteredHistory.length === 0}
+                  data-testid="button-export-excel"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Exportar Excel
+                </Button>
+              </div>
             </div>
 
             <div className="flex flex-col md:flex-row gap-3">
