@@ -18,6 +18,7 @@ export const palletPositionSchema = z.object({
   quantity: z.number().optional(),
   storageType: storageTypeSchema.optional(),
   entryDate: z.string().optional(),
+  address: z.string().optional(),
   observations: z.string().optional(),
   isEmpty: z.boolean(),
 });
@@ -40,6 +41,7 @@ export const kanbanPalletSchema = z.object({
   quantity: z.number(),
   storageType: storageTypeSchema.optional(),
   entryDate: z.string(),
+  address: z.string().optional(),
   observations: z.string().optional(),
 });
 
@@ -56,6 +58,7 @@ export const productFormSchema = z.object({
   quantity: z.number().min(1, "Quantidade deve ser maior que 0"),
   storageType: storageTypeSchema.default("palete"),
   entryDate: z.string().min(1, "Data de entrada é obrigatória"),
+  address: z.string().optional(),
   observations: z.string().optional(),
 });
 
@@ -127,6 +130,7 @@ export const palletPositions = pgTable("pallet_positions", {
   quantity: integer("quantity"),
   storageType: varchar("storage_type", { length: 20 }),
   entryDate: varchar("entry_date", { length: 50 }),
+  address: varchar("address", { length: 255 }),
   observations: text("observations"),
   isEmpty: boolean("is_empty").notNull().default(true),
 });
@@ -140,6 +144,7 @@ export const kanbanPallets = pgTable("kanban_pallets", {
   quantity: integer("quantity").notNull(),
   storageType: varchar("storage_type", { length: 20 }),
   entryDate: varchar("entry_date", { length: 50 }).notNull(),
+  address: varchar("address", { length: 255 }),
   observations: text("observations"),
 });
 

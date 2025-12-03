@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Package, Calendar, Hash, FileText, Layers, User } from "lucide-react";
+import { Package, Calendar, Hash, FileText, Layers, User, MapPin } from "lucide-react";
 
 interface ProductDetailModalProps {
   open: boolean;
@@ -40,6 +40,7 @@ export function ProductDetailModal({
   const clientName = isKanban ? kanbanProduct.clientName : positionProduct.clientName;
   const quantity = isKanban ? kanbanProduct.quantity : positionProduct.quantity;
   const entryDate = isKanban ? kanbanProduct.entryDate : positionProduct.entryDate;
+  const address = isKanban ? kanbanProduct.address : positionProduct.address;
   const observations = isKanban
     ? kanbanProduct.observations
     : positionProduct.observations;
@@ -134,6 +135,16 @@ export function ProductDetailModal({
                 </div>
               </div>
             </div>
+
+            {address && (
+              <div className="flex items-start gap-3 rounded-lg border p-3">
+                <MapPin className="mt-0.5 h-4 w-4 text-muted-foreground" />
+                <div className="flex-1">
+                  <p className="text-xs text-muted-foreground">Endereco</p>
+                  <p className="text-sm" data-testid="text-detail-address">{address}</p>
+                </div>
+              </div>
+            )}
 
             {observations && (
               <div className="flex items-start gap-3 rounded-lg border p-3">

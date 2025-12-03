@@ -51,6 +51,7 @@ export function ProductFormModal({
       quantity: 1,
       storageType: "palete",
       entryDate: format(new Date(), "yyyy-MM-dd"),
+      address: "",
       observations: "",
     },
   });
@@ -64,6 +65,7 @@ export function ProductFormModal({
         quantity: initialData?.quantity || 1,
         storageType: initialData?.storageType || "palete",
         entryDate: initialData?.entryDate || format(new Date(), "yyyy-MM-dd"),
+        address: initialData?.address || "",
         observations: initialData?.observations || "",
       });
     }
@@ -209,6 +211,24 @@ export function ProductFormModal({
                   <FormLabel>Data de Entrada</FormLabel>
                   <FormControl>
                     <Input type="date" {...field} data-testid="input-entry-date" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="address"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Endereco (opcional)</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Ex: Rua das Flores, 123"
+                      {...field}
+                      data-testid="input-address"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
