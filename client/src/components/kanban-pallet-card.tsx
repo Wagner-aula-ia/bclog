@@ -147,7 +147,7 @@ export function KanbanPalletCard({
       </div>
 
       <div className="mb-3 flex items-center justify-between text-sm text-muted-foreground">
-        <span><span className="font-bold text-foreground">Quantidade:</span> {pallet.quantity}</span>
+        <span><span className="font-bold text-foreground">Quantidade:</span> <span className="text-foreground">{pallet.quantity}</span></span>
         <span>{formattedDate}</span>
       </div>
 
