@@ -141,8 +141,8 @@ export function PalletPositionCard({
       </div>
 
       <div className="mt-2 flex items-center justify-between text-sm text-muted-foreground">
-        <span className="font-medium">
-          Qtd: {position.quantity} | {position.storageType === "granel" ? "A Granel" : "Palete"}
+        <span>
+          <span className="font-bold">Qtd:</span> {position.quantity} | <span className="font-bold">Tipo:</span> {position.storageType === "granel" ? "A Granel" : "Palete"}
         </span>
         <span>{formattedDate}</span>
       </div>
