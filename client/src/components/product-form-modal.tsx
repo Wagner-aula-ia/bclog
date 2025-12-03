@@ -184,7 +184,7 @@ export function ProductFormModal({
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="granel" id="granel" />
                           <label htmlFor="granel" className="text-sm font-medium cursor-pointer">
-                            A Granel
+                            a Granel
                           </label>
                         </div>
                         <div className="flex items-center space-x-2">
