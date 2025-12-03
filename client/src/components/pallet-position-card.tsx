@@ -126,7 +126,7 @@ export function PalletPositionCard({
             </p>
           )}
           <p
-            className="truncate text-xs text-muted-foreground"
+            className="truncate text-sm font-medium text-foreground"
             title={position.productName}
           >
             {position.productName}

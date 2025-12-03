@@ -96,7 +96,7 @@ export function KanbanPalletCard({
             <Package className="h-4 w-4" />
           </div>
           <div>
-            <p className="text-sm font-semibold" data-testid={`text-name-${pallet.id}`}>
+            <p className="text-base font-semibold" data-testid={`text-name-${pallet.id}`}>
               {pallet.productName}
             </p>
             <p
