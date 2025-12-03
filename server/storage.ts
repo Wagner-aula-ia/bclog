@@ -93,6 +93,7 @@ export class MemStorage implements IStorage {
       clientName: data.clientName ?? position.clientName,
       quantity: data.quantity ?? position.quantity,
       entryDate: data.entryDate ?? position.entryDate,
+      address: data.address ?? position.address,
       observations: data.observations ?? position.observations,
       isEmpty: false,
     };
@@ -135,6 +136,7 @@ export class MemStorage implements IStorage {
       clientName: data.clientName,
       quantity: data.quantity,
       entryDate: data.entryDate,
+      address: data.address,
       observations: data.observations,
     };
 
@@ -157,6 +159,7 @@ export class MemStorage implements IStorage {
       clientName: data.clientName ?? pallet.clientName,
       quantity: data.quantity ?? pallet.quantity,
       entryDate: data.entryDate ?? pallet.entryDate,
+      address: data.address ?? pallet.address,
       observations: data.observations ?? pallet.observations,
     };
 

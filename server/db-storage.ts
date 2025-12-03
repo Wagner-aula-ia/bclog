@@ -56,6 +56,7 @@ export class DbStorage implements IStorage {
         quantity: pos.quantity || undefined,
         storageType: (pos.storageType as "granel" | "palete") || undefined,
         entryDate: pos.entryDate || undefined,
+        address: pos.address || undefined,
         observations: pos.observations || undefined,
         isEmpty: pos.isEmpty,
       }))
@@ -83,6 +84,7 @@ export class DbStorage implements IStorage {
       quantity: pos.quantity || undefined,
       storageType: (pos.storageType as "granel" | "palete") || undefined,
       entryDate: pos.entryDate || undefined,
+      address: pos.address || undefined,
       observations: pos.observations || undefined,
       isEmpty: pos.isEmpty,
     };
@@ -101,6 +103,7 @@ export class DbStorage implements IStorage {
         quantity: data.quantity,
         storageType: data.storageType,
         entryDate: data.entryDate,
+        address: data.address,
         observations: data.observations,
         isEmpty: false,
       })
@@ -119,6 +122,7 @@ export class DbStorage implements IStorage {
         quantity: null,
         storageType: null,
         entryDate: null,
+        address: null,
         observations: null,
         isEmpty: true,
       })
@@ -139,6 +143,7 @@ export class DbStorage implements IStorage {
       quantity: pallet.quantity,
       storageType: (pallet.storageType as "granel" | "palete") || undefined,
       entryDate: pallet.entryDate,
+      address: pallet.address || undefined,
       observations: pallet.observations || undefined,
     }));
   }
@@ -158,6 +163,7 @@ export class DbStorage implements IStorage {
       quantity: pallet.quantity,
       storageType: (pallet.storageType as "granel" | "palete") || undefined,
       entryDate: pallet.entryDate,
+      address: pallet.address || undefined,
       observations: pallet.observations || undefined,
     };
   }
@@ -174,6 +180,7 @@ export class DbStorage implements IStorage {
       quantity: data.quantity,
       storageType: data.storageType,
       entryDate: data.entryDate,
+      address: data.address,
       observations: data.observations,
     });
 
@@ -196,6 +203,7 @@ export class DbStorage implements IStorage {
     if (data.quantity !== undefined) updates.quantity = data.quantity;
     if (data.storageType !== undefined) updates.storageType = data.storageType;
     if (data.entryDate !== undefined) updates.entryDate = data.entryDate;
+    if (data.address !== undefined) updates.address = data.address;
     if (data.observations !== undefined) updates.observations = data.observations;
 
     await db
