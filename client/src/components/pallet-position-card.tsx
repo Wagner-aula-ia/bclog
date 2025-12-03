@@ -132,14 +132,14 @@ export function PalletPositionCard({
         </div>
       </div>
 
-      <div className="mt-2 flex items-center justify-between text-[10px] text-muted-foreground">
-        <span>Qtd: {position.quantity}</span>
+      <div className="mt-2 flex items-center justify-between text-sm text-muted-foreground">
+        <span className="font-medium">Qtd: {position.quantity}</span>
         <span>{formattedDate}</span>
       </div>
 
       {position.observations && (
         <p
-          className="mt-1 truncate text-[10px] italic text-muted-foreground/70"
+          className="mt-1 truncate text-xs italic text-muted-foreground/70"
           title={position.observations}
         >
           {position.observations}

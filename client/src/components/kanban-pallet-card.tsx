@@ -140,14 +140,14 @@ export function KanbanPalletCard({
         </DropdownMenu>
       </div>
 
-      <div className="mb-3 flex items-center justify-between text-xs text-muted-foreground">
-        <span>Qtd: {pallet.quantity}</span>
+      <div className="mb-3 flex items-center justify-between text-sm text-muted-foreground">
+        <span className="font-medium">Qtd: {pallet.quantity}</span>
         <span>{formattedDate}</span>
       </div>
 
       {pallet.observations && (
         <p
-          className="mb-3 truncate text-[10px] italic text-muted-foreground/70"
+          className="mb-3 truncate text-xs italic text-muted-foreground/70"
           title={pallet.observations}
         >
           {pallet.observations}
