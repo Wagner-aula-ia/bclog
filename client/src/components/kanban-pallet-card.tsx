@@ -96,14 +96,20 @@ export function KanbanPalletCard({
             <Package className="h-4 w-4" />
           </div>
           <div>
-            <p className="text-sm font-semibold" data-testid={`text-code-${pallet.id}`}>
+            <p className="text-sm font-semibold" data-testid={`text-name-${pallet.id}`}>
+              {pallet.productName}
+            </p>
+            <p
+              className="max-w-[140px] truncate text-xs text-muted-foreground"
+              title={pallet.productCode}
+            >
               {pallet.productCode}
             </p>
             <p
               className="max-w-[140px] truncate text-xs text-muted-foreground"
-              title={pallet.productName}
+              title={pallet.clientName}
             >
-              {pallet.productName}
+              {pallet.clientName}
             </p>
           </div>
         </div>

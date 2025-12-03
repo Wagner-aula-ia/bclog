@@ -119,16 +119,24 @@ export function PalletPositionCard({
         <div className="min-w-0 flex-1">
           <p
             className="truncate text-sm font-semibold"
-            title={position.productCode}
-          >
-            {position.productCode}
-          </p>
-          <p
-            className="truncate text-xs text-muted-foreground"
             title={position.productName}
           >
             {position.productName}
           </p>
+          <p
+            className="truncate text-xs text-muted-foreground"
+            title={position.productCode}
+          >
+            {position.productCode}
+          </p>
+          {position.clientName && (
+            <p
+              className="truncate text-xs text-muted-foreground"
+              title={position.clientName}
+            >
+              {position.clientName}
+            </p>
+          )}
         </div>
       </div>
 

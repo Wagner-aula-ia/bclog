@@ -10,6 +10,7 @@ export const palletPositionSchema = z.object({
   position: z.enum(["AP1", "AP2"]), // Posição AP1 or AP2
   productName: z.string().optional(),
   productCode: z.string().optional(),
+  clientName: z.string().optional(),
   quantity: z.number().optional(),
   entryDate: z.string().optional(),
   observations: z.string().optional(),
@@ -30,6 +31,7 @@ export const kanbanPalletSchema = z.object({
   status: kanbanStatusSchema,
   productName: z.string(),
   productCode: z.string(),
+  clientName: z.string(),
   quantity: z.number(),
   entryDate: z.string(),
   observations: z.string().optional(),
@@ -43,7 +45,8 @@ export type InsertKanbanPallet = z.infer<typeof insertKanbanPalletSchema>;
 // Product form schema for validation
 export const productFormSchema = z.object({
   productName: z.string().min(1, "Nome do produto é obrigatório"),
-  productCode: z.string().min(1, "Código é obrigatório"),
+  productCode: z.string().min(1, "Código do produto é obrigatório"),
+  clientName: z.string().min(1, "Nome do cliente é obrigatório"),
   quantity: z.number().min(1, "Quantidade deve ser maior que 0"),
   entryDate: z.string().min(1, "Data de entrada é obrigatória"),
   observations: z.string().optional(),
@@ -79,6 +82,7 @@ export const movementHistorySchema = z.object({
   type: movementTypeSchema,
   productName: z.string(),
   productCode: z.string(),
+  clientName: z.string(),
   quantity: z.number(),
   location: z.string(), // e.g., "Bloco 1, Nível 5, AP1" or "Kanban Verde"
   previousLocation: z.string().optional(), // For moves
@@ -112,6 +116,7 @@ export const palletPositions = pgTable("pallet_positions", {
   position: varchar("position", { length: 10 }).notNull(),
   productName: varchar("product_name", { length: 255 }),
   productCode: varchar("product_code", { length: 100 }),
+  clientName: varchar("client_name", { length: 255 }),
   quantity: integer("quantity"),
   entryDate: varchar("entry_date", { length: 50 }),
   observations: text("observations"),
@@ -123,6 +128,7 @@ export const kanbanPallets = pgTable("kanban_pallets", {
   status: varchar("status", { length: 20 }).notNull(),
   productName: varchar("product_name", { length: 255 }).notNull(),
   productCode: varchar("product_code", { length: 100 }).notNull(),
+  clientName: varchar("client_name", { length: 255 }).notNull(),
   quantity: integer("quantity").notNull(),
   entryDate: varchar("entry_date", { length: 50 }).notNull(),
   observations: text("observations"),
@@ -134,6 +140,7 @@ export const movementHistory = pgTable("movement_history", {
   type: varchar("type", { length: 20 }).notNull(),
   productName: varchar("product_name", { length: 255 }).notNull(),
   productCode: varchar("product_code", { length: 100 }).notNull(),
+  clientName: varchar("client_name", { length: 255 }).notNull(),
   quantity: integer("quantity").notNull(),
   location: varchar("location", { length: 255 }).notNull(),
   previousLocation: varchar("previous_location", { length: 255 }),

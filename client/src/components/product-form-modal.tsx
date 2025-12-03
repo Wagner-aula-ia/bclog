@@ -45,6 +45,7 @@ export function ProductFormModal({
     defaultValues: {
       productName: "",
       productCode: "",
+      clientName: "",
       quantity: 1,
       entryDate: format(new Date(), "yyyy-MM-dd"),
       observations: "",
@@ -56,6 +57,7 @@ export function ProductFormModal({
       form.reset({
         productName: initialData?.productName || "",
         productCode: initialData?.productCode || "",
+        clientName: initialData?.clientName || "",
         quantity: initialData?.quantity || 1,
         entryDate: initialData?.entryDate || format(new Date(), "yyyy-MM-dd"),
         observations: initialData?.observations || "",
@@ -108,12 +110,30 @@ export function ProductFormModal({
               name="productCode"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Codigo</FormLabel>
+                  <FormLabel>Codigo do Produto</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Ex: SKU-001"
                       {...field}
                       data-testid="input-product-code"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="clientName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Nome do Cliente</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Ex: Empresa ABC Ltda"
+                      {...field}
+                      data-testid="input-client-name"
                     />
                   </FormControl>
                   <FormMessage />

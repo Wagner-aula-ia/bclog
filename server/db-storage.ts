@@ -52,6 +52,7 @@ export class DbStorage implements IStorage {
         position: pos.position as "AP1" | "AP2",
         productName: pos.productName || undefined,
         productCode: pos.productCode || undefined,
+        clientName: pos.clientName || undefined,
         quantity: pos.quantity || undefined,
         entryDate: pos.entryDate || undefined,
         observations: pos.observations || undefined,
@@ -77,6 +78,7 @@ export class DbStorage implements IStorage {
       position: pos.position as "AP1" | "AP2",
       productName: pos.productName || undefined,
       productCode: pos.productCode || undefined,
+      clientName: pos.clientName || undefined,
       quantity: pos.quantity || undefined,
       entryDate: pos.entryDate || undefined,
       observations: pos.observations || undefined,
@@ -93,6 +95,7 @@ export class DbStorage implements IStorage {
       .set({
         productName: data.productName,
         productCode: data.productCode,
+        clientName: data.clientName,
         quantity: data.quantity,
         entryDate: data.entryDate,
         observations: data.observations,
@@ -109,6 +112,7 @@ export class DbStorage implements IStorage {
       .set({
         productName: null,
         productCode: null,
+        clientName: null,
         quantity: null,
         entryDate: null,
         observations: null,
@@ -127,6 +131,7 @@ export class DbStorage implements IStorage {
       status: pallet.status as KanbanStatus,
       productName: pallet.productName,
       productCode: pallet.productCode,
+      clientName: pallet.clientName,
       quantity: pallet.quantity,
       entryDate: pallet.entryDate,
       observations: pallet.observations || undefined,
@@ -144,6 +149,7 @@ export class DbStorage implements IStorage {
       status: pallet.status as KanbanStatus,
       productName: pallet.productName,
       productCode: pallet.productCode,
+      clientName: pallet.clientName,
       quantity: pallet.quantity,
       entryDate: pallet.entryDate,
       observations: pallet.observations || undefined,
@@ -158,6 +164,7 @@ export class DbStorage implements IStorage {
       status: data.status,
       productName: data.productName,
       productCode: data.productCode,
+      clientName: data.clientName,
       quantity: data.quantity,
       entryDate: data.entryDate,
       observations: data.observations,
@@ -178,6 +185,7 @@ export class DbStorage implements IStorage {
     if (data.status !== undefined) updates.status = data.status;
     if (data.productName !== undefined) updates.productName = data.productName;
     if (data.productCode !== undefined) updates.productCode = data.productCode;
+    if (data.clientName !== undefined) updates.clientName = data.clientName;
     if (data.quantity !== undefined) updates.quantity = data.quantity;
     if (data.entryDate !== undefined) updates.entryDate = data.entryDate;
     if (data.observations !== undefined) updates.observations = data.observations;
@@ -221,6 +229,7 @@ export class DbStorage implements IStorage {
         type: entry.type as any,
         productName: entry.productName,
         productCode: entry.productCode,
+        clientName: entry.clientName,
         quantity: entry.quantity,
         location: entry.location,
         previousLocation: entry.previousLocation || undefined,
@@ -249,6 +258,7 @@ export class DbStorage implements IStorage {
         type: entry.type as any,
         productName: entry.productName,
         productCode: entry.productCode,
+        clientName: entry.clientName,
         quantity: entry.quantity,
         location: entry.location,
         previousLocation: entry.previousLocation || undefined,
@@ -266,6 +276,7 @@ export class DbStorage implements IStorage {
       type: entry.type,
       productName: entry.productName,
       productCode: entry.productCode,
+      clientName: entry.clientName,
       quantity: entry.quantity,
       location: entry.location,
       previousLocation: entry.previousLocation,

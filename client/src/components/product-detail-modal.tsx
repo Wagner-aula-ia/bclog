@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Package, Calendar, Hash, FileText, Layers } from "lucide-react";
+import { Package, Calendar, Hash, FileText, Layers, User } from "lucide-react";
 
 interface ProductDetailModalProps {
   open: boolean;
@@ -37,6 +37,7 @@ export function ProductDetailModal({
 
   const productName = isKanban ? kanbanProduct.productName : positionProduct.productName;
   const productCode = isKanban ? kanbanProduct.productCode : positionProduct.productCode;
+  const clientName = isKanban ? kanbanProduct.clientName : positionProduct.clientName;
   const quantity = isKanban ? kanbanProduct.quantity : positionProduct.quantity;
   const entryDate = isKanban ? kanbanProduct.entryDate : positionProduct.entryDate;
   const observations = isKanban
@@ -103,8 +104,16 @@ export function ProductDetailModal({
             <div className="flex items-start gap-3 rounded-lg border p-3">
               <Hash className="mt-0.5 h-4 w-4 text-muted-foreground" />
               <div className="flex-1">
-                <p className="text-xs text-muted-foreground">Codigo</p>
+                <p className="text-xs text-muted-foreground">Codigo do Produto</p>
                 <p className="font-medium font-mono" data-testid="text-detail-code">{productCode}</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 rounded-lg border p-3">
+              <User className="mt-0.5 h-4 w-4 text-muted-foreground" />
+              <div className="flex-1">
+                <p className="text-xs text-muted-foreground">Nome do Cliente</p>
+                <p className="font-medium" data-testid="text-detail-client">{clientName}</p>
               </div>
             </div>
 
