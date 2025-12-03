@@ -262,7 +262,9 @@ export default function Home() {
         return {
           productName: selectedPosition.productName,
           productCode: selectedPosition.productCode,
+          clientName: selectedPosition.clientName,
           quantity: selectedPosition.quantity,
+          storageType: selectedPosition.storageType,
           entryDate: selectedPosition.entryDate,
           observations: selectedPosition.observations,
         };
@@ -271,6 +273,7 @@ export default function Home() {
         return {
           productName: selectedKanban.productName,
           productCode: selectedKanban.productCode,
+          clientName: selectedKanban.clientName,
           quantity: selectedKanban.quantity,
           entryDate: selectedKanban.entryDate,
           observations: selectedKanban.observations,
