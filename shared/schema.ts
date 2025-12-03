@@ -38,6 +38,7 @@ export const kanbanPalletSchema = z.object({
   productCode: z.string(),
   clientName: z.string(),
   quantity: z.number(),
+  storageType: storageTypeSchema.optional(),
   entryDate: z.string(),
   observations: z.string().optional(),
 });
@@ -137,6 +138,7 @@ export const kanbanPallets = pgTable("kanban_pallets", {
   productCode: varchar("product_code", { length: 100 }).notNull(),
   clientName: varchar("client_name", { length: 255 }).notNull(),
   quantity: integer("quantity").notNull(),
+  storageType: varchar("storage_type", { length: 20 }),
   entryDate: varchar("entry_date", { length: 50 }).notNull(),
   observations: text("observations"),
 });

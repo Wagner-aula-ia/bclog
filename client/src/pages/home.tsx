@@ -275,6 +275,7 @@ export default function Home() {
           productCode: selectedKanban.productCode,
           clientName: selectedKanban.clientName,
           quantity: selectedKanban.quantity,
+          storageType: selectedKanban.storageType,
           entryDate: selectedKanban.entryDate,
           observations: selectedKanban.observations,
         };

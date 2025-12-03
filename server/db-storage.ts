@@ -137,6 +137,7 @@ export class DbStorage implements IStorage {
       productCode: pallet.productCode,
       clientName: pallet.clientName,
       quantity: pallet.quantity,
+      storageType: (pallet.storageType as "granel" | "palete") || undefined,
       entryDate: pallet.entryDate,
       observations: pallet.observations || undefined,
     }));
@@ -155,6 +156,7 @@ export class DbStorage implements IStorage {
       productCode: pallet.productCode,
       clientName: pallet.clientName,
       quantity: pallet.quantity,
+      storageType: (pallet.storageType as "granel" | "palete") || undefined,
       entryDate: pallet.entryDate,
       observations: pallet.observations || undefined,
     };
@@ -170,6 +172,7 @@ export class DbStorage implements IStorage {
       productCode: data.productCode,
       clientName: data.clientName,
       quantity: data.quantity,
+      storageType: data.storageType,
       entryDate: data.entryDate,
       observations: data.observations,
     });
@@ -191,6 +194,7 @@ export class DbStorage implements IStorage {
     if (data.productCode !== undefined) updates.productCode = data.productCode;
     if (data.clientName !== undefined) updates.clientName = data.clientName;
     if (data.quantity !== undefined) updates.quantity = data.quantity;
+    if (data.storageType !== undefined) updates.storageType = data.storageType;
     if (data.entryDate !== undefined) updates.entryDate = data.entryDate;
     if (data.observations !== undefined) updates.observations = data.observations;
 

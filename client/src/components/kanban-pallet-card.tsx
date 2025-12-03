@@ -147,7 +147,12 @@ export function KanbanPalletCard({
       </div>
 
       <div className="mb-3 flex items-center justify-between text-sm text-muted-foreground">
-        <span><span className="font-bold text-foreground">Qtd:</span> <span className="text-foreground">{pallet.quantity}</span></span>
+        <span>
+          <span className="font-bold text-foreground">Qtd:</span> <span className="text-foreground">{pallet.quantity}</span>
+          {pallet.storageType && (
+            <> | <span className="font-bold text-foreground">{pallet.storageType === "granel" ? "a Granel" : "Palete"}</span></>
+          )}
+        </span>
         <span>{formattedDate}</span>
       </div>
 
