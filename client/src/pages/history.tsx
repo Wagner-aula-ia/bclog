@@ -111,21 +111,29 @@ export default function HistoryPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [typeFilter, setTypeFilter] = useState<string>("all");
 
+  const [filterKey, setFilterKey] = useState(0);
+
   const {
     data: history = [],
     isLoading,
-    refetch,
   } = useQuery<MovementHistory[]>({
-    queryKey: ["/api/history", startDate, endDate],
+    queryKey: ["/api/history", startDate, endDate, filterKey],
     queryFn: async () => {
       const params = new URLSearchParams();
       if (startDate) params.append("startDate", startDate);
       if (endDate) params.append("endDate", endDate);
-      const response = await fetch(`/api/history?${params}`);
+      const response = await fetch(`/api/history?${params}`, {
+        cache: 'no-store',
+      });
       if (!response.ok) throw new Error("Failed to fetch history");
       return response.json();
     },
+    staleTime: 0,
   });
+
+  const handleFilter = () => {
+    setFilterKey(prev => prev + 1);
+  };
 
   const filteredHistory = history.filter((entry) => {
     const matchesSearch =
@@ -171,7 +179,7 @@ export default function HistoryPage() {
               </div>
               <div className="flex gap-2">
                 <Button
-                  onClick={() => refetch()}
+                  onClick={handleFilter}
                   variant="outline"
                   data-testid="button-filter-date"
                 >
