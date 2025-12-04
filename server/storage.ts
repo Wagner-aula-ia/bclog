@@ -198,8 +198,14 @@ export class MemStorage implements IStorage {
     endDate: string
   ): Promise<MovementHistory[]> {
     // Use UTC dates for consistent comparison with stored timestamps
-    const start = new Date(startDate + 'T00:00:00.000Z').getTime();
-    const end = new Date(endDate + 'T23:59:59.999Z').getTime();
+    // Subtract 1 day from start and add 1 day to end to account for timezone differences
+    const startDateObj = new Date(startDate + 'T00:00:00.000Z');
+    startDateObj.setUTCDate(startDateObj.getUTCDate() - 1);
+    const start = startDateObj.getTime();
+    
+    const endDateObj = new Date(endDate + 'T23:59:59.999Z');
+    endDateObj.setUTCDate(endDateObj.getUTCDate() + 1);
+    const end = endDateObj.getTime();
 
     return Array.from(this.history.values())
       .filter((entry) => {

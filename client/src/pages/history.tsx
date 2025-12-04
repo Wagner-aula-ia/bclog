@@ -112,10 +112,12 @@ export default function HistoryPage() {
   const [typeFilter, setTypeFilter] = useState<string>("all");
 
   const [filterKey, setFilterKey] = useState(0);
+  const [isFiltering, setIsFiltering] = useState(false);
 
   const {
     data: history = [],
     isLoading,
+    isFetching,
   } = useQuery<MovementHistory[]>({
     queryKey: ["/api/history", startDate, endDate, filterKey],
     queryFn: async () => {
@@ -124,14 +126,21 @@ export default function HistoryPage() {
       if (endDate) params.append("endDate", endDate);
       const response = await fetch(`/api/history?${params}`, {
         cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+        },
       });
       if (!response.ok) throw new Error("Failed to fetch history");
-      return response.json();
+      const data = await response.json();
+      setIsFiltering(false);
+      return data;
     },
     staleTime: 0,
+    gcTime: 0,
   });
 
   const handleFilter = () => {
+    setIsFiltering(true);
     setFilterKey(prev => prev + 1);
   };
 
@@ -181,9 +190,10 @@ export default function HistoryPage() {
                 <Button
                   onClick={handleFilter}
                   variant="outline"
+                  disabled={isFiltering || isFetching}
                   data-testid="button-filter-date"
                 >
-                  Filtrar
+                  {isFiltering || isFetching ? "Filtrando..." : "Filtrar"}
                 </Button>
                 <Button
                   onClick={() => exportToExcel(filteredHistory, startDate, endDate)}

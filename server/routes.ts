@@ -232,6 +232,8 @@ export async function registerRoutes(
     try {
       const { startDate, endDate } = req.query;
 
+      console.log("History request - startDate:", startDate, "endDate:", endDate);
+
       let history;
       if (startDate && endDate) {
         history = await storage.getHistoryByDateRange(
@@ -242,6 +244,7 @@ export async function registerRoutes(
         history = await storage.getAllHistory();
       }
 
+      console.log("History result count:", history.length);
       res.json(history);
     } catch (error) {
       console.error("Error fetching history:", error);
