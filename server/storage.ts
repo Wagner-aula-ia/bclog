@@ -197,8 +197,9 @@ export class MemStorage implements IStorage {
     startDate: string,
     endDate: string
   ): Promise<MovementHistory[]> {
-    const start = new Date(startDate).getTime();
-    const end = new Date(endDate).getTime();
+    // Use UTC dates for consistent comparison with stored timestamps
+    const start = new Date(startDate + 'T00:00:00.000Z').getTime();
+    const end = new Date(endDate + 'T23:59:59.999Z').getTime();
 
     return Array.from(this.history.values())
       .filter((entry) => {
