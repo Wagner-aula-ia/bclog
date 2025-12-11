@@ -66,7 +66,7 @@ export function WarehouseBlock({
           {levels.map((level) => (
             <div key={level} className="flex gap-3">
               <div className="flex w-12 shrink-0 items-center justify-center">
-                <span className="text-lg font-bold text-muted-foreground">
+                <span className="text-lg font-bold text-black">
                   N{level}
                 </span>
               </div>

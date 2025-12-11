@@ -32,10 +32,10 @@ export function PalletPositionCard({
         onClick={onAdd}
         data-testid={`position-empty-${position.block}-${position.level}-${position.position}`}
       >
-        <div className="flex flex-col items-center gap-2 text-muted-foreground transition-colors group-hover:text-foreground">
+        <div className="flex flex-col items-center gap-2 text-black transition-colors">
           <Plus className="h-6 w-6" />
           <span className="text-lg font-bold">{positionLabel}</span>
-          <span className="text-lg font-bold opacity-70">Clique para adicionar</span>
+          <span className="text-lg font-bold">Clique para adicionar</span>
         </div>
       </Card>
     );
@@ -54,7 +54,7 @@ export function PalletPositionCard({
       data-testid={`position-filled-${position.block}-${position.level}-${position.position}`}
     >
       <div className="mb-2 flex items-start justify-between gap-2">
-        <span className="rounded bg-primary/10 px-1.5 py-0.5 text-lg font-bold text-primary">
+        <span className="rounded bg-primary/10 px-1.5 py-0.5 text-lg font-bold text-black">
           {positionLabel}
         </span>
         <div className="flex gap-1 opacity-0 transition-opacity group-hover:opacity-100">
@@ -119,20 +119,20 @@ export function PalletPositionCard({
         <div className="min-w-0 flex-1">
           {position.clientName && (
             <p
-              className="truncate text-lg font-bold"
+              className="truncate text-lg font-bold text-black"
               title={position.clientName}
             >
               {position.clientName}
             </p>
           )}
           <p
-            className="truncate text-lg font-bold text-muted-foreground"
+            className="truncate text-lg font-bold text-black"
             title={position.productName}
           >
             {position.productName}
           </p>
           <p
-            className="truncate text-lg font-bold text-muted-foreground"
+            className="truncate text-lg font-bold text-black"
             title={position.productCode}
           >
             {position.productCode}
@@ -140,16 +140,16 @@ export function PalletPositionCard({
         </div>
       </div>
 
-      <div className="mt-2 flex items-center justify-between gap-2 text-lg font-bold text-muted-foreground">
+      <div className="mt-2 flex items-center justify-between gap-2 text-lg font-bold text-black">
         <span>
-          <span className="text-foreground">Qtd:</span> <span className="text-foreground">{position.quantity}</span> | <span className="text-foreground">{position.storageType === "granel" ? "a Granel" : "Palete"}</span>
+          <span>Qtd:</span> <span>{position.quantity}</span> | <span>{position.storageType === "granel" ? "a Granel" : "Palete"}</span>
         </span>
         <span>{formattedDate}</span>
       </div>
 
       {position.observations && (
         <p
-          className="mt-1 truncate text-lg font-bold italic text-muted-foreground/70"
+          className="mt-1 truncate text-lg font-bold italic text-black"
           title={position.observations}
         >
           {position.observations}
