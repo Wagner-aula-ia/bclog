@@ -58,7 +58,7 @@ export function WarehouseBlock({
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <Layers className="h-4 w-4" />
           </div>
-          Bloco {blockNumber}
+          BLOCO {blockNumber}
         </CardTitle>
       </CardHeader>
       <CardContent>
