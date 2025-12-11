@@ -24,22 +24,22 @@ const columnConfig: Record<
     title: "Verde",
     subtitle: "Pronto / Disponivel",
     bgColor: "bg-emerald-500/5",
-    headerBg: "bg-emerald-500",
-    textColor: "text-white",
+    headerBg: "bg-emerald-500 border-2 border-black",
+    textColor: "text-black font-bold",
   },
   yellow: {
     title: "Amarelo",
     subtitle: "Atencao / Pre-saida",
     bgColor: "bg-amber-500/5",
-    headerBg: "bg-amber-500",
-    textColor: "text-white",
+    headerBg: "bg-amber-500 border-2 border-black",
+    textColor: "text-black font-bold",
   },
   red: {
     title: "Vermelho",
     subtitle: "Urgente / Saida imediata",
     bgColor: "bg-red-500/5",
-    headerBg: "bg-red-500",
-    textColor: "text-white",
+    headerBg: "bg-red-500 border-2 border-black",
+    textColor: "text-black font-bold",
   },
 };
 
@@ -82,8 +82,8 @@ export function KanbanColumn({
       <div className={`${config.headerBg} ${config.textColor} px-4 py-3`}>
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-semibold">{config.title}</h3>
-            <p className="text-lg opacity-80">{config.subtitle}</p>
+            <h3 className="text-lg font-bold text-black">{config.title}</h3>
+            <p className="text-lg font-bold text-black">{config.subtitle}</p>
           </div>
           <div className="flex items-center gap-2">
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-lg font-medium">
@@ -119,7 +119,7 @@ export function KanbanColumn({
       <div className="border-t p-3">
         <Button
           variant="outline"
-          className="w-full gap-2 font-bold text-black dark:text-white"
+          className="w-full gap-2 font-bold text-black dark:text-white border-2 border-black"
           onClick={onAddPallet}
           data-testid={`button-add-kanban-${status}`}
         >

@@ -28,16 +28,20 @@ function StatCard({
     gray: "bg-gray-500/20 text-gray-300",
   };
 
+  const isColoredCard = color === "green" || color === "yellow" || color === "red";
+  const borderClass = isColoredCard ? "border-2 border-black" : "";
+  const labelTextClass = isColoredCard ? "text-lg font-bold uppercase tracking-wide text-black" : "text-lg font-medium uppercase tracking-wide text-white/60";
+
   return (
     <div
-      className="flex items-center gap-3 rounded-lg bg-white/5 px-4 py-3 backdrop-blur-sm"
+      className={`flex items-center gap-3 rounded-lg bg-white/5 px-4 py-3 backdrop-blur-sm ${borderClass}`}
       data-testid={`stat-card-${label.toLowerCase().replace(/\s+/g, "-")}`}
     >
       <div className={`rounded-md p-2 ${colorClasses[color]}`}>
         <Icon className="h-5 w-5" />
       </div>
       <div className="flex flex-col">
-        <span className="text-lg font-medium uppercase tracking-wide text-white/60">
+        <span className={labelTextClass}>
           {label}
         </span>
         {isLoading ? (
