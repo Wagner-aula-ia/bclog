@@ -74,7 +74,7 @@ export function DashboardHeader({ stats, isLoading }: DashboardHeaderProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6 lg:gap-3">
+          <div className="flex flex-wrap items-center justify-end gap-2 lg:gap-3">
             <StatCard
               label="Ocupadas"
               value={stats.occupiedPositions}
@@ -89,7 +89,7 @@ export function DashboardHeader({ stats, isLoading }: DashboardHeaderProps) {
               color="gray"
               isLoading={isLoading}
             />
-            <div className="col-span-2 flex gap-2 sm:col-span-1 lg:col-span-4">
+            <div className="flex gap-2">
               <StatCard
                 label="Verde"
                 value={stats.kanbanGreen}
