@@ -57,7 +57,7 @@ export function DashboardHeader({ stats, isLoading }: DashboardHeaderProps) {
       data-testid="dashboard-header"
     >
       <div className="mx-auto px-2 py-4 sm:px-4">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
           <div className="flex items-center gap-4">
             <img
               src={bclogLogo}
