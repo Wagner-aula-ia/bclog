@@ -30,8 +30,9 @@ function Navigation() {
 
   return (
     <nav className="border-b bg-card">
-      <div className="flex items-center gap-1 p-2 overflow-x-auto">
-        {navItems.map((item) => {
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="flex items-center gap-1 py-2 overflow-x-auto">
+          {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = location === item.path;
           return (
@@ -47,7 +48,8 @@ function Navigation() {
               </Button>
             </Link>
           );
-        })}
+          })}
+        </div>
       </div>
     </nav>
   );
