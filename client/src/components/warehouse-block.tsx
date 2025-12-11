@@ -52,7 +52,7 @@ export function WarehouseBlock({
   }
 
   return (
-    <Card className="h-full" data-testid={`warehouse-block-${blockNumber}`}>
+    <Card className="h-full border-2 border-black dark:border-white" data-testid={`warehouse-block-${blockNumber}`}>
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center gap-2 text-lg">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
