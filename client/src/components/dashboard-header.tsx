@@ -68,7 +68,7 @@ export function DashboardHeader({ stats, isLoading }: DashboardHeaderProps) {
               <h1 className="text-xl font-semibold text-white sm:text-2xl">
                 BCLOG
               </h1>
-              <p className="text-lg text-white/60">
+              <p className="whitespace-nowrap text-lg text-white/60">
                 Sistema de Armazenagem
               </p>
             </div>
