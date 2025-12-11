@@ -76,7 +76,7 @@ export function KanbanColumn({
 
   return (
     <div
-      className={`flex h-full flex-col rounded-lg ${config.bgColor} overflow-hidden border`}
+      className={`flex h-full flex-col rounded-lg ${config.bgColor} overflow-hidden border-2 border-black`}
       data-testid={`kanban-column-${status}`}
     >
       <div className={`${config.headerBg} ${config.textColor} px-4 py-3`}>
