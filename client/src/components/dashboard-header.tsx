@@ -37,7 +37,7 @@ function StatCard({
         <Icon className="h-5 w-5" />
       </div>
       <div className="flex flex-col">
-        <span className="text-xs font-medium uppercase tracking-wide text-white/60">
+        <span className="text-lg font-medium uppercase tracking-wide text-white/60">
           {label}
         </span>
         {isLoading ? (
@@ -68,7 +68,7 @@ export function DashboardHeader({ stats, isLoading }: DashboardHeaderProps) {
               <h1 className="text-xl font-semibold text-white sm:text-2xl">
                 BCLOG
               </h1>
-              <p className="text-xs text-white/60 sm:text-sm">
+              <p className="text-lg text-white/60">
                 Sistema de Armazenagem Interno
               </p>
             </div>

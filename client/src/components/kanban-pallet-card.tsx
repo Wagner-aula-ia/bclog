@@ -96,17 +96,17 @@ export function KanbanPalletCard({
             <Package className="h-4 w-4" />
           </div>
           <div>
-            <p className="text-base font-semibold" data-testid={`text-name-${pallet.id}`}>
+            <p className="text-lg font-semibold" data-testid={`text-name-${pallet.id}`}>
               {pallet.productName}
             </p>
             <p
-              className="max-w-[140px] truncate text-xs text-muted-foreground"
+              className="max-w-[140px] truncate text-lg text-muted-foreground"
               title={pallet.productCode}
             >
               {pallet.productCode}
             </p>
             <p
-              className="max-w-[140px] truncate text-xs text-muted-foreground"
+              className="max-w-[140px] truncate text-lg text-muted-foreground"
               title={pallet.clientName}
             >
               {pallet.clientName}
@@ -146,7 +146,7 @@ export function KanbanPalletCard({
         </DropdownMenu>
       </div>
 
-      <div className="mb-3 flex items-center justify-between text-sm text-muted-foreground">
+      <div className="mb-3 flex items-center justify-between gap-2 text-lg text-muted-foreground">
         <span>
           <span className="font-bold text-foreground">Qtd:</span> <span className="text-foreground">{pallet.quantity}</span>
           {pallet.storageType && (
@@ -158,7 +158,7 @@ export function KanbanPalletCard({
 
       {pallet.observations && (
         <p
-          className="mb-3 truncate text-xs italic text-muted-foreground/70"
+          className="mb-3 truncate text-lg italic text-muted-foreground/70"
           title={pallet.observations}
         >
           {pallet.observations}

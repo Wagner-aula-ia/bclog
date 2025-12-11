@@ -82,11 +82,11 @@ export function KanbanColumn({
       <div className={`${config.headerBg} ${config.textColor} px-4 py-3`}>
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="font-semibold">{config.title}</h3>
-            <p className="text-xs opacity-80">{config.subtitle}</p>
+            <h3 className="text-lg font-semibold">{config.title}</h3>
+            <p className="text-lg opacity-80">{config.subtitle}</p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 text-xs font-medium">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-lg font-medium">
               {pallets.length}
             </span>
           </div>
@@ -98,7 +98,7 @@ export function KanbanColumn({
           {pallets.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-8 text-center text-muted-foreground">
               <Package className="mb-2 h-8 w-8 opacity-50" />
-              <p className="text-sm">Nenhum palete nesta fase</p>
+              <p className="text-lg">Nenhum palete nesta fase</p>
             </div>
           ) : (
             pallets.map((pallet) => (
