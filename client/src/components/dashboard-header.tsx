@@ -56,13 +56,13 @@ export function DashboardHeader({ stats, isLoading }: DashboardHeaderProps) {
       className="sticky top-0 z-50 w-full bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 shadow-lg"
       data-testid="dashboard-header"
     >
-      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
+      <div className="mx-auto px-2 py-4 sm:px-4">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <img
               src={bclogLogo}
               alt="BCLog Express"
-              className="h-12 w-auto rounded-lg bg-white p-1"
+              className="h-16 w-auto rounded-lg bg-white p-1"
             />
             <div>
               <h1 className="text-xl font-semibold text-white sm:text-2xl">
