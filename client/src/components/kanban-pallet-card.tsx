@@ -96,17 +96,17 @@ export function KanbanPalletCard({
             <Package className="h-4 w-4" />
           </div>
           <div>
-            <p className="text-lg font-semibold" data-testid={`text-name-${pallet.id}`}>
+            <p className="text-lg font-bold text-black dark:text-white" data-testid={`text-name-${pallet.id}`}>
               {pallet.productName}
             </p>
             <p
-              className="max-w-[140px] truncate text-lg text-muted-foreground"
+              className="max-w-[140px] truncate text-lg font-bold text-black dark:text-white"
               title={pallet.productCode}
             >
               {pallet.productCode}
             </p>
             <p
-              className="max-w-[140px] truncate text-lg text-muted-foreground"
+              className="max-w-[140px] truncate text-lg font-bold text-black dark:text-white"
               title={pallet.clientName}
             >
               {pallet.clientName}
@@ -146,19 +146,19 @@ export function KanbanPalletCard({
         </DropdownMenu>
       </div>
 
-      <div className="mb-3 flex items-center justify-between gap-2 text-lg text-muted-foreground">
-        <span>
-          <span className="font-bold text-foreground">Qtd:</span> <span className="text-foreground">{pallet.quantity}</span>
+      <div className="mb-3 flex items-center justify-between gap-2 text-lg">
+        <span className="font-bold text-black dark:text-white">
+          <span>Qtd:</span> <span>{pallet.quantity}</span>
           {pallet.storageType && (
-            <> | <span className="font-bold text-foreground">{pallet.storageType === "granel" ? "a Granel" : "Palete"}</span></>
+            <> | <span>{pallet.storageType === "granel" ? "a Granel" : "Palete"}</span></>
           )}
         </span>
-        <span>{formattedDate}</span>
+        <span className="font-bold text-black dark:text-white">{formattedDate}</span>
       </div>
 
       {pallet.observations && (
         <p
-          className="mb-3 truncate text-lg italic text-muted-foreground/70"
+          className="mb-3 truncate text-lg font-bold italic text-black dark:text-white"
           title={pallet.observations}
         >
           {pallet.observations}

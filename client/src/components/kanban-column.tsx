@@ -96,9 +96,9 @@ export function KanbanColumn({
       <ScrollArea className="flex-1">
         <div className="space-y-3 p-3">
           {pallets.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-8 text-center text-muted-foreground">
-              <Package className="mb-2 h-8 w-8 opacity-50" />
-              <p className="text-lg">Nenhum palete nesta fase</p>
+            <div className="flex flex-col items-center justify-center py-8 text-center">
+              <Package className="mb-2 h-8 w-8 text-black dark:text-white" />
+              <p className="text-lg font-bold text-black dark:text-white">Nenhum palete nesta fase</p>
             </div>
           ) : (
             pallets.map((pallet) => (
