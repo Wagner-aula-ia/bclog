@@ -69,7 +69,7 @@ export function DashboardHeader({ stats, isLoading }: DashboardHeaderProps) {
                 BCLOG
               </h1>
               <p className="text-lg text-white/60">
-                Sistema de Armazenagem Interno
+                Sistema de Armazenagem
               </p>
             </div>
           </div>
