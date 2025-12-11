@@ -29,10 +29,10 @@ export function KanbanSection({
   const redPallets = pallets.filter((p) => p.status === "red");
 
   return (
-    <Card data-testid="kanban-section">
+    <Card className="border-2 border-black dark:border-white" data-testid="kanban-section">
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center gap-2 text-lg">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500 via-amber-500 to-red-500 text-white">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <Kanban className="h-4 w-4" />
           </div>
           KANBAN
