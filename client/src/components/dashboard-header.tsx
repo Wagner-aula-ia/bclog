@@ -93,7 +93,7 @@ export function DashboardHeader({ stats, isLoading }: DashboardHeaderProps) {
               color="gray"
               isLoading={isLoading}
             />
-            <div className="flex gap-2">
+            <div className="flex gap-2 rounded-lg border-2 border-black p-1">
               <StatCard
                 label="Verde"
                 value={stats.kanbanGreen}
