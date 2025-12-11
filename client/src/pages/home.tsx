@@ -308,10 +308,10 @@ export default function Home() {
 
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full max-w-xs grid-cols-2 bg-transparent">
+          <TabsList className="grid w-full max-w-xs grid-cols-2 bg-blue-600 dark:bg-blue-700">
             <TabsTrigger 
               value="warehouse" 
-              className="gap-2 data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-yellow-500 data-[state=active]:text-foreground rounded-none" 
+              className="gap-2 text-white data-[state=active]:bg-blue-600 dark:data-[state=active]:bg-blue-700 data-[state=active]:text-white data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-yellow-400 rounded-none" 
               data-testid="tab-warehouse"
             >
               <Layers className="h-4 w-4" />
@@ -319,7 +319,7 @@ export default function Home() {
             </TabsTrigger>
             <TabsTrigger 
               value="kanban" 
-              className="gap-2 data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-yellow-500 data-[state=active]:text-foreground rounded-none" 
+              className="gap-2 text-white data-[state=active]:bg-blue-600 dark:data-[state=active]:bg-blue-700 data-[state=active]:text-white data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-yellow-400 rounded-none" 
               data-testid="tab-kanban"
             >
               <Kanban className="h-4 w-4" />
