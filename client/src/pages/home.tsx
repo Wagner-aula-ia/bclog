@@ -311,7 +311,7 @@ export default function Home() {
           <TabsList className="grid w-full max-w-xs grid-cols-2 bg-transparent">
             <TabsTrigger 
               value="warehouse" 
-              className="gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-yellow-400 rounded-none" 
+              className="gap-2 text-black dark:text-white data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-yellow-400 rounded-none" 
               data-testid="tab-warehouse"
             >
               <Layers className="h-4 w-4" />
@@ -319,7 +319,7 @@ export default function Home() {
             </TabsTrigger>
             <TabsTrigger 
               value="kanban" 
-              className="gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-yellow-400 rounded-none" 
+              className="gap-2 text-black dark:text-white data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-yellow-400 rounded-none" 
               data-testid="tab-kanban"
             >
               <Kanban className="h-4 w-4" />
