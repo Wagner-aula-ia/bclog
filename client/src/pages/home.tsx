@@ -308,7 +308,7 @@ export default function Home() {
 
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full max-w-md grid-cols-2">
+          <TabsList className="grid w-full max-w-xs grid-cols-2">
             <TabsTrigger value="warehouse" className="gap-2" data-testid="tab-warehouse">
               <Layers className="h-4 w-4" />
               Porta-Palete
