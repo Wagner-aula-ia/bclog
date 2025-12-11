@@ -56,7 +56,7 @@ export function DashboardHeader({ stats, isLoading }: DashboardHeaderProps) {
       className="sticky top-0 z-50 w-full bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 shadow-lg"
       data-testid="dashboard-header"
     >
-      <div className="mx-auto px-2 py-4 sm:px-4">
+      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
           <div className="flex items-center gap-4">
             <img
