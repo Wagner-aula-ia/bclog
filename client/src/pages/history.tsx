@@ -220,7 +220,7 @@ export default function HistoryPage() {
                 />
               </div>
               <Select value={typeFilter} onValueChange={setTypeFilter}>
-                <SelectTrigger className="w-full md:w-48 border-black" data-testid="select-type-filter">
+                <SelectTrigger className="w-full md:w-48 border-black text-black" data-testid="select-type-filter">
                   <SelectValue placeholder="Tipo de movimento" />
                 </SelectTrigger>
                 <SelectContent>
