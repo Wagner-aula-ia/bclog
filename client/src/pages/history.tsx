@@ -169,7 +169,7 @@ export default function HistoryPage() {
           <div className="flex flex-col gap-4">
             <div className="flex flex-col md:flex-row gap-3">
               <div className="flex items-center gap-2 flex-1">
-                <CalendarDays className="w-4 h-4 text-muted-foreground" />
+                <CalendarDays className="w-4 h-4 text-black" />
                 <Input
                   type="date"
                   value={startDate}
@@ -177,7 +177,7 @@ export default function HistoryPage() {
                   className="flex-1 border-black"
                   data-testid="input-start-date"
                 />
-                <span className="text-muted-foreground">até</span>
+                <span className="text-black">até</span>
                 <Input
                   type="date"
                   value={endDate}
