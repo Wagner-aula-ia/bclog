@@ -31,7 +31,7 @@ function Navigation() {
   return (
     <nav className="border-b bg-card">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex items-center gap-1 py-2 overflow-x-auto">
+        <div className="flex items-center gap-2 py-2 overflow-x-auto">
           {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = location === item.path;
@@ -40,7 +40,7 @@ function Navigation() {
               <Button
                 variant={isActive ? "default" : "ghost"}
                 size="sm"
-                className={cn("gap-2", isActive && "bg-primary")}
+                className={cn("gap-2 border border-black", isActive && "bg-primary")}
                 data-testid={`nav-${item.path.replace("/", "") || "home"}`}
               >
                 <Icon className="w-4 h-4" />
