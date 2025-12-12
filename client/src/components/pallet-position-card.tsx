@@ -140,11 +140,13 @@ export function PalletPositionCard({
         </div>
       </div>
 
-      <div className="mt-2 flex items-center justify-between gap-2 text-lg font-bold text-black">
-        <span>
-          <span>Qtd:</span> <span>{position.quantity}</span> | <span>{position.storageType === "granel" ? "a Granel" : "Palete"}</span>
-        </span>
-        <span>{formattedDate}</span>
+      <div className="mt-2 flex flex-col gap-1 text-lg font-bold text-black">
+        <div className="text-right">
+          <span>{formattedDate}</span>
+        </div>
+        <div>
+          <span>Qtd:</span> <span>{position.quantity}</span> <span>{position.storageType === "granel" ? "a Granel" : "Palete"}</span>
+        </div>
       </div>
 
       {position.observations && (
