@@ -119,7 +119,7 @@ export function KanbanColumn({
       <div className="border-t p-3">
         <Button
           variant="outline"
-          className="w-full gap-2 font-bold text-black dark:text-white border-2 border-black"
+          className="w-full gap-2 font-bold text-black dark:text-white !border-2 !border-black"
           onClick={onAddPallet}
           data-testid={`button-add-kanban-${status}`}
         >
