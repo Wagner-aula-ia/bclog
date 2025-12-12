@@ -189,8 +189,8 @@ export default function HistoryPage() {
               <div className="flex gap-2">
                 <Button
                   onClick={handleFilter}
-                  variant="ghost"
-                  className="border border-black"
+                  variant="default"
+                  className="bg-black text-white hover:bg-black/90"
                   disabled={isFiltering || isFetching}
                   data-testid="button-filter-date"
                 >
@@ -210,12 +210,12 @@ export default function HistoryPage() {
 
             <div className="flex flex-col md:flex-row gap-3">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-black" />
                 <Input
                   placeholder="Buscar por produto, código ou localização..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 border-black"
+                  className="pl-10 border-black placeholder:text-black"
                   data-testid="input-search-history"
                 />
               </div>
@@ -247,8 +247,8 @@ export default function HistoryPage() {
               ))}
             </div>
           ) : filteredHistory.length === 0 ? (
-            <div className="p-12 text-center text-muted-foreground">
-              <FileText className="w-12 h-12 mx-auto mb-4 opacity-50" />
+            <div className="p-12 text-center text-black">
+              <FileText className="w-12 h-12 mx-auto mb-4 text-black" />
               <p className="text-lg font-medium">Nenhuma movimentação encontrada</p>
               <p className="text-sm">
                 {history.length === 0
