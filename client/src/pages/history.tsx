@@ -157,7 +157,7 @@ export default function HistoryPage() {
   });
 
   return (
-    <div className="flex flex-col gap-6 p-4 md:p-6">
+    <div className="flex flex-col gap-6 p-4 md:p-6 mx-auto max-w-7xl">
       <Card className="border-black">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
