@@ -311,7 +311,7 @@ export default function Home() {
           <TabsList className="flex w-auto gap-2 bg-transparent justify-start">
             <TabsTrigger 
               value="warehouse" 
-              className="gap-2 text-black dark:text-white border border-black rounded-md px-3 py-1.5 text-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-none" 
+              className="gap-2 text-black dark:text-white border border-black rounded-md px-3 py-1.5 text-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-none data-[state=active]:underline data-[state=active]:decoration-yellow-400 data-[state=active]:decoration-2 data-[state=active]:underline-offset-4" 
               data-testid="tab-warehouse"
             >
               <Layers className="h-4 w-4" />
@@ -319,7 +319,7 @@ export default function Home() {
             </TabsTrigger>
             <TabsTrigger 
               value="kanban" 
-              className="gap-2 text-black dark:text-white border border-black rounded-md px-3 py-1.5 text-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-none" 
+              className="gap-2 text-black dark:text-white border border-black rounded-md px-3 py-1.5 text-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-none data-[state=active]:underline data-[state=active]:decoration-yellow-400 data-[state=active]:decoration-2 data-[state=active]:underline-offset-4" 
               data-testid="tab-kanban"
             >
               <Kanban className="h-4 w-4" />
