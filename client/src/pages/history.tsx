@@ -190,7 +190,7 @@ export default function HistoryPage() {
                 <Button
                   onClick={handleFilter}
                   variant="outline"
-                  className="border-black text-black font-bold"
+                  className="!border-black text-black font-bold"
                   disabled={isFiltering || isFetching}
                   data-testid="button-filter-date"
                 >
