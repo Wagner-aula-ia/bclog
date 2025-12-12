@@ -308,7 +308,7 @@ export default function Home() {
 
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="flex w-auto gap-2 bg-transparent">
+          <TabsList className="flex w-auto gap-2 bg-transparent justify-start">
             <TabsTrigger 
               value="warehouse" 
               className="gap-2 text-black dark:text-white border border-black rounded-md px-3 py-1.5 text-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-none" 
