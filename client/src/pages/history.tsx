@@ -189,8 +189,8 @@ export default function HistoryPage() {
               <div className="flex gap-2">
                 <Button
                   onClick={handleFilter}
-                  variant="outline"
-                  className="border-black"
+                  variant="ghost"
+                  className="border border-black"
                   disabled={isFiltering || isFetching}
                   data-testid="button-filter-date"
                 >
