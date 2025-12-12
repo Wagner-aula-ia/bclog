@@ -158,7 +158,7 @@ export default function HistoryPage() {
 
   return (
     <div className="flex flex-col gap-6 p-4 md:p-6">
-      <Card>
+      <Card className="border-black">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
             <FileText className="w-5 h-5" />
@@ -174,7 +174,7 @@ export default function HistoryPage() {
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
-                  className="flex-1"
+                  className="flex-1 border-black"
                   data-testid="input-start-date"
                 />
                 <span className="text-muted-foreground">até</span>
@@ -182,7 +182,7 @@ export default function HistoryPage() {
                   type="date"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
-                  className="flex-1"
+                  className="flex-1 border-black"
                   data-testid="input-end-date"
                 />
               </div>
@@ -190,6 +190,7 @@ export default function HistoryPage() {
                 <Button
                   onClick={handleFilter}
                   variant="outline"
+                  className="border-black"
                   disabled={isFiltering || isFetching}
                   data-testid="button-filter-date"
                 >
@@ -214,12 +215,12 @@ export default function HistoryPage() {
                   placeholder="Buscar por produto, código ou localização..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 border-black"
                   data-testid="input-search-history"
                 />
               </div>
               <Select value={typeFilter} onValueChange={setTypeFilter}>
-                <SelectTrigger className="w-full md:w-48" data-testid="select-type-filter">
+                <SelectTrigger className="w-full md:w-48 border-black" data-testid="select-type-filter">
                   <SelectValue placeholder="Tipo de movimento" />
                 </SelectTrigger>
                 <SelectContent>
@@ -237,7 +238,7 @@ export default function HistoryPage() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="border-black">
         <CardContent className="p-0">
           {isLoading ? (
             <div className="p-6 space-y-4">
