@@ -306,8 +306,8 @@ export default function Home() {
     <div className="min-h-screen bg-background" data-testid="home-page">
       <DashboardHeader stats={stats} isLoading={statsLoading} />
 
-      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
+      <main className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-3">
           <TabsList className="flex w-auto gap-2 bg-transparent justify-start">
             <TabsTrigger 
               value="warehouse" 
