@@ -22,21 +22,21 @@ const columnConfig: Record<
 > = {
   green: {
     title: "Verde",
-    subtitle: "Pronto / Disponivel",
+    subtitle: "Pronto / Disponível",
     bgColor: "bg-emerald-500/5",
     headerBg: "bg-emerald-500",
     textColor: "text-black font-bold",
   },
   yellow: {
     title: "Amarelo",
-    subtitle: "Atencao / Pre-saida",
+    subtitle: "Atenção / Pré-saída",
     bgColor: "bg-amber-500/5",
     headerBg: "bg-amber-500",
     textColor: "text-black font-bold",
   },
   red: {
     title: "Vermelho",
-    subtitle: "Urgente / Saida imediata",
+    subtitle: "Urgente / Saída imediata",
     bgColor: "bg-red-500/5",
     headerBg: "bg-red-500",
     textColor: "text-black font-bold",
